@@ -1,0 +1,7 @@
+{
+  "response": {
+    "code": "0",
+    "mesagge": "Usuario logeado con exito",
+    "token": "token-prueba"
+  }
+}
