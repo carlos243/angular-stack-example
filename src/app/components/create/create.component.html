@@ -15,12 +15,21 @@
     <form class="example-form" [formGroup]="form">
       <mat-form-field class="example-full-width">
         <input matInput formControlName="name" placeholder="Nombre" >
-        <mat-error *ngIf="form.get('name').hasError('required')">
+
+
+        <mat-error *ngFor="let validation of validation_messages.name">
+          <mat-error class="error-message" *ngIf="form.get('name').hasError(validation.type) && (form.get('name').dirty || form.get('name').touched)">
+            {{validation.message}}
+          </mat-error>
+        </mat-error>
+        
+
+        <!--mat-error *ngIf="form.get('name').hasError('required')">
           Nombre es requerido
         </mat-error>
         <mat-error *ngIf="form.get('name').hasError('minLength')">
           Minimo 9 letras
-        </mat-error>
+        </mat-error-->
       </mat-form-field>
 
       <!--mat-form-field class="example-full-width">
